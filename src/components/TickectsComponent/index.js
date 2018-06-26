@@ -6,7 +6,10 @@ class TicketsComponet extends React.Component {
         let ticketsMarkUp = <div>Loading</div>;
 
         if (this.props.tickets) {
-            const list = this.props.tickets.map(item => <li>{item.price}</li>);
+            const list = this.props.tickets.map(item => {
+                const key = `${item.carrier} ${item.departure_date} ${item.departure_time}`;
+                return <li key={key}>{item.price}</li>;
+            });
             ticketsMarkUp = <ul>{list}</ul>
         }
 

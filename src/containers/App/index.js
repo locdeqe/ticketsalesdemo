@@ -28,7 +28,8 @@ class App extends React.PureComponent {
 
 const mapStateToProps = (state) => {
 	return {
-		currency: state.currency.currency
+		currency: state.currency.currency,
+		filters: state.filters.filters
 	}
 }
 

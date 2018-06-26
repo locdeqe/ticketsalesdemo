@@ -1,16 +1,33 @@
-import React from 'react'
+import {connect} from 'react-redux'
+import changeFilter from '../../store/actions/changeFilter'
+import HopsSelector from '../../components/HopsSelector' 
 
-class HopsSelector extends React.Component {
-    render() {
-        return(
-            <div className="HopsSelectorWrapper"> 
-                <h2 className="subHeader subHeader--hops">HopsSelector</h2>
-                <div className="checkboxesContainer">
-                    1,2,3
-                </div>
-            </div>
-        )
+const mapStateToPros = (state) => {
+    let tickets = state.tickets.tickets.tickets;
+    let filters = state.filters.filters || [];
+    
+    if (!tickets || !tickets.length) return {};
+
+    let maxHops = tickets[0].stops;
+
+    tickets.forEach(element => {
+        if (element.stops > maxHops) maxHops = element.stops;
+    });
+    
+    return {
+        maxHops: maxHops,
+        filters: filters
     }
 }
 
-export default HopsSelector
+const mapDispatchToProps = (dispatch) => {
+    return {
+        changeFilter: (filt, isOnly = false) => {
+            dispatch(changeFilter(filt, isOnly));
+        }
+    }
+}
+
+const HopsSelectorContainer = connect(mapStateToPros, mapDispatchToProps)(HopsSelector)
+
+export default HopsSelectorContainer
