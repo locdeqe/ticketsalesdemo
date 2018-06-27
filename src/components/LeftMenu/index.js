@@ -1,7 +1,6 @@
 import React from 'react'
-import CurrencyTabContainer from '../CurrencyTabContainer'
-import HopsSelectorContainer from '../HopsSelectorContainer'
-import './styles.css'
+import CurrencyTabContainer from '../../containers/CurrencyTabContainer'
+import HopsSelectorContainer from '../../containers/HopsSelectorContainer'
 
 class LeftMenu extends React.Component {
     render() {

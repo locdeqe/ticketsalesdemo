@@ -5,7 +5,7 @@ class Logo extends React.PureComponent {
     render() {
         return (
             <div className = "logo">
-                <img src={logoImg}/>
+                <img src={logoImg} alt = "logo"/>
             </div>
         )
     }

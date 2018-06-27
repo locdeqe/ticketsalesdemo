@@ -4,9 +4,9 @@ import HopsInput from '../HopsInput'
 class HopsSelector extends React.Component {
     render() {
         let checkboxes = [];
-        const allFilters = this.props.filters || [];
+        const allFilters = this.props.filters ? this.props.filters : [];
 
-        let isAll = (!this.props.filters.length) ? true : false;
+        let isAll = (!allFilters.length) ? true : false;
         checkboxes.push(
             <HopsInput key={99} count={"Все"} active = {isAll} changeFilter = {this.props.changeFilter}></HopsInput>
         );
@@ -20,7 +20,7 @@ class HopsSelector extends React.Component {
 
         return(
             <div className="HopsSelectorWrapper"> 
-                <h2 className="subHeader subHeader--hops">HopsSelector</h2>
+                <h2 className="subHeader subHeader--hops">Количество пересадок</h2>
                 <div className="checkboxesContainer">
                     {checkboxes}
                 </div>

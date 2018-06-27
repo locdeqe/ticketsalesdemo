@@ -9,10 +9,14 @@ class CurrencyButton extends React.PureComponent {
             classes += " currencyButton-last"
         }
 
+        if (this.props.current === this.props.currency) {
+            classes += " currencyButton-active"
+        }
+
         return (
-            <div className={classes} onClick = {this.props.onClick}>
+            <button className={classes} onClick = {this.props.onClick}>
                 <div>{this.props.currency}</div>
-            </div>
+            </button>
         )
     }
 }

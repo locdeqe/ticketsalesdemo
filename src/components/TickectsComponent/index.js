@@ -8,14 +8,13 @@ class TicketsComponet extends React.Component {
         if (this.props.tickets) {
             const list = this.props.tickets.map(item => {
                 const key = `${item.carrier} ${item.departure_date} ${item.departure_time}`;
-                return <li key={key}>{item.price}</li>;
+                return <Ticket key = {key} ticket = {item} currency = {this.props.currency}></Ticket>
             });
             ticketsMarkUp = <ul>{list}</ul>
         }
 
         return (
             <div>
-                <h1>TicketsComponet</h1>
                 {ticketsMarkUp}
             </div>
         )

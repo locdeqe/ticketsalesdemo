@@ -1,10 +1,11 @@
-import React from 'react'
 import {connect} from 'react-redux'
 import changeCurrency from '../../store/actions/changeCurency'
 import CurrencyTab from '../../components/CurrencyTab'
 
 const mapStateToProps = (state) => {
-    return state
+    return {
+        current: state.currency.currency
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {
